@@ -1,0 +1,92 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="pageBG">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class=" marginAlert alert alert-{{ category }} alert-dismissible fade show">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+    {% endwith %}
+    <div class="divP">
+        {% if user_title=='admin' %}
+        <div class="container">
+            <div class="row  ">
+                <div class="col-lg-6 col-md-6">
+                    <div class="row listHeader title2">
+                        <div class="col-lg-12 ">
+                            <h1>Users</h1>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-lg-12 ">
+                            <div class="listForm ">
+                                <div class="pt-3 formStyle ">
+                                    <div style="max-height: 60vh; overflow-y: scroll; ">
+                                        {% for user in users %}
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4  ">
+                                                <h5>{{loop.index}}</h5>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-8  labelText">
+                                                <a class=" listcolor nav-link" href="/{{user[1]}}/data" role="button">{{user[0]}}</a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 ">
+                    <div class="row listHeader ">
+                        <div class="col-lg-12 title2">
+                            <h1>Logs</h1>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-lg-12 ">
+                            <div class="listForm">
+                                <div class="pt-3 formStyle">
+                                    <div style="max-height: 60vh; overflow-y: scroll; ">
+                                        {% for log in logsDateFlag %}
+                                        <div class="row " >
+                                            <div class="col-lg-2 col-md-2 col-sm-2  ">
+                                                <h5>{{loop.index}}</h5>
+                                            </div>
+                                            <div class="col-lg-10 col-md-10 col-sm-10  labelText">
+                                                <a class=" listcolor nav-link " href="/{{log[2]}}/view" role="button">{{log[0]}} 
+                                                    {%if log[1]== True%}
+                                                    <span class="alert alert-success"> </span>
+                                                    {%else%}
+                                                    <span class="alert alert-danger"> </span>
+                                                    {%endif%}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%elif user_title == 'user'%}
+            <h1 class="listHeader">welcome!</h1>
+            <h3 class="listHeader">successful login</h3>
+        {%else%}
+            <h1 class="listHeader title1">welcome!</h1>
+            <h3 class="listHeader title2">please login</h3>
+        {% endif %}
+    </div>
+</div>
+    
+{%endblock content%}

@@ -1,0 +1,107 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="pageBG">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class=" marginAlert alert alert-{{ category }} alert-dismissible fade show">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+    {% endwith %}
+    <div class="divP">
+        <div class="divForm">
+            <form class="pt-3 formStyle" method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <h2 class="mb-3 fw-normal">Please Sign up</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-3 labelText">
+                            <label >{{ form.name.label()}}<span class="text-danger">*</span></label>
+                            {% if form.name.errors %}
+                                {{ form.name(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.name(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-3 labelText">
+                            <label >{{ form.user_id.label()}}<span class="text-danger">*</span></label>
+                            {% if form.user_id.errors %}
+                                {{ form.user_id(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.user_id.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.user_id(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-6 col-md-6  mb-3 labelText">
+                            <label >{{ form.password.label()}}<span class="text-danger">*</span></label>
+                            {% if form.password.errors %}
+                                {{ form.password(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6 col-md-6  mb-3 labelText">
+                            <label > {{ form.confirmPassword.label()}}<span class="text-danger">*</span></label>
+                            {% if form.confirmPassword.errors %}
+                                {{ form.confirmPassword(class="form-control  is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirmPassword.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.confirmPassword(class="form-control ") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 labelText">
+                            <label > {{ form.images.label()}}<span class="text-danger">*</span></label>
+                            {% if form.images.errors %}
+                                {{ form.images(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.images.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.images(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6  labelText mb-3">
+                            {{ form.submit(class="btn btn-lg btn-primary") }}
+                        </div>
+                    </div>               
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock content%}
+

@@ -1,0 +1,50 @@
+{%extends "layout.html"%}
+
+{%block content%}
+<div class="pageBG">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="marginAlert alert alert-{{ category }} alert-dismissible fade show">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+  {% endwith %}
+  <div class="divP">
+    <div class="divForm">
+      <form class="pt-3 formStyle" method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <h2 class="mb-3 fw-normal">Please Sign in</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 mb-3 labelText">
+              <label >{{ form.user_id.label() }}<span class="text-danger">*</span></label>
+              {{ form.user_id(class="form-control") }}
+            </div>
+            <div class="col-lg-6 col-md-6  mb-3 labelText">
+              <label >{{ form.password.label() }}<span class="text-danger">*</span></label>
+              {{ form.password(class="form-control") }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 labelText">
+              <label >{{ form.image.label() }}<span class="text-danger">*</span></label>
+              {{ form.image(class="form-control") }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6  labelText mb-3">
+              {{ form.submit(class="btn btn-lg btn-primary") }}
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{%endblock content%}
+

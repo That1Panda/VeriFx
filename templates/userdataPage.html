@@ -1,0 +1,86 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="pageBG">
+    <div class="divP">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-3 ">
+                    <div class="userForm">
+                        <div class="formStyle">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3 ">
+                                    <h1>{{userData.name}}</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 mb-3 labelText">
+                                    <h3>ID: {{userData.user_id}}</h3>
+                                </div>
+                                <div class="col-lg-8 col-md-4 mb-3 labelText">
+                                    <h3>Password: {{userData.password}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3 labelText">
+                                    <h5>Created date: {{userData.created_date}}</h5>
+                                </div>
+                            </div>
+                                    
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 mb-3 labelText">
+                                    <img src="../static/images/signUpImgs/{{userData.pic1}}" width="50%" height="auto" alt="pic1">
+                                </div>
+                                <div class="col-lg-4 col-md-4 mb-3 labelText">
+                                    <img src="../static/images/signUpImgs/{{userData.pic2}}" width="50%" height="auto" alt="pic2">
+                                </div>
+                                <div class="col-lg-4 col-md-4 mb-3 labelText">
+                                    <img src="../static/images/signUpImgs/{{userData.pic3}}" width="50%" height="auto" alt="pic3">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-3 ">
+                                    <a class="btn btn-primary btn-lg" href="/{{id}}/edit" role="button">Edit</a>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-3 labelButton">
+                                    <a class="btn btn-danger btn-lg" href="/{{id}}/delete" role="button">Delete</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3 ">
+                    <div class="listForm">
+                        <div class="formStyle">
+                            <div class="row listHeader ">
+                                <div class="col-lg-12 ">
+                                    <h1>Logs</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3 ">
+                                    <div style="max-height: 45vh; overflow-y: scroll; ">
+                                        {%for log in userData.logs%}
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6 mb-3 labelText">
+                                                {{loop.index}}
+                                            </div>
+                                            <div class="col-lg-9 col-md-6 mb-3 labelText">
+                                                {{log.created_date}}
+                                            </div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,135 @@
+body{
+    margin: 0;
+    background-color: #0B68A7;
+    text-align: center;
+}
+
+/* navbar */
+.navStyle{
+    padding: 0 5%;
+}
+
+.nav-link{
+    color: azure;
+}
+
+/* register & login page */
+.pageBG{
+    height: 120vh;
+    background-image: url(/static/images/image-01-panthermedia-b185889616-1748x1165.jpg);
+    background-size: cover;
+}
+
+.divP{
+    padding-top: 8%;
+}
+
+.divForm{
+    margin-left: 5%;
+    border-radius: 15%;
+    width: 40%;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: azure;
+}
+
+.listForm{
+    margin: auto ;
+    border-radius: 10%;
+    width: 50%;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: azure;
+}
+
+.userForm{
+    margin: auto ;
+    border-radius: 10%;
+    width: 80%;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: azure;
+}
+
+.formStyle{
+    margin: auto auto;
+    width: 80%;   
+}
+
+.labelText{
+    text-align: left;
+}
+
+.labelButton{
+    text-align: left;
+}
+
+.labelText2{
+    text-align: right;
+}
+
+.marginAlert{
+    margin-top: 4.4%;
+}
+
+.listText{
+    text-align: center;
+}
+
+.listcolor,.listHeader {
+    color : azure;
+}
+
+.listcolor:hover{
+    color : #0B68A7;
+}
+
+a.listcolor.nav-link{
+    padding-top: 0;
+}
+
+span.alert.alert-success, span.alert.alert-danger{
+    padding-bottom: 0;
+}
+
+/*media query*/
+@media(max-width:800px){
+
+    .pageBG{
+        height: 150vh;
+        background-image: url(/static/images/image-01-panthermedia-b185889616-174118x11615.jpg);
+        background-size: cover;
+    }
+
+    .divP{
+        padding-top: 30%;
+    }
+
+    .listForm{
+        width: 90%;
+    }
+    
+    .marginAlert{
+        margin-top: 15%;
+    }
+
+    .divForm{
+        margin: auto auto;
+        width: 85%;
+    }
+    
+    .formStyle{
+        width: 85%;   
+    }
+    
+    .title1{
+        padding-top: 25%;
+        font-size: 250%;
+        color: black;
+    }
+
+    .title2{
+        color: black;
+    }
+
+    .labelButton{
+        text-align: center;
+    }
+}
